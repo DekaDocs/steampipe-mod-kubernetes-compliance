@@ -112,13 +112,13 @@ benchmark "nsa_cisa_v1_network_hardening_memory_request" {
 }
 
 benchmark "nsa_cisa_v1_network_hardening_default_deny_network_policy" {
-  title       = "Network policy should have a default policy to deny all ingress and egress traffic"
-  description = "Administrators should use a default policy selecting all Pods to deny all ingress and egress traffic and ensure any unselected Pods are isolated. Additional policies could then relax these restrictions for permissible connections."
+  title       = "CloudekaGuard policy should have a default policy to deny all ingress and egress traffic"
+  description = "Administrators should use a default CloudekaGuard policy selecting all Pods to deny all ingress and egress traffic and ensure any unselected Pods are isolated. Additional policies could then relax these restrictions for permissible connections."
   children = [
-    control.network_policy_default_deny_egress,
-    control.network_policy_default_deny_ingress,
-    control.network_policy_default_dont_allow_egress,
-    control.network_policy_default_dont_allow_ingress
+    control.cloudeka_guard_default_deny_egress,
+    control.cloudeka_guard_default_deny_ingress,
+    control.cloudeka_guard_default_dont_allow_egress,
+    control.cloudeka_guard_default_dont_allow_ingress
   ]
 
   tags = merge(local.nsa_cisa_v1_network_hardening_common_tags, {

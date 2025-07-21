@@ -89,13 +89,13 @@ benchmark "cis_v170_5_3" {
 
 benchmark "cis_v170_5_3_2" {
   title         = "5.3.2 Ensure that all Namespaces have Network Policies defined"
-  description   = "Use network policies to isolate traffic in your cluster network."
+  description   = "Use CloudekaGuard policies to isolate traffic in your cluster network. CloudekaGuard is a custom resource that provides advanced network policy management capabilities using Cilium and KubeOVN."
   documentation = file("./cis_v170/docs/cis_v170_5_3_2.md")
   children = [
-    control.network_policy_default_deny_egress,
-    control.network_policy_default_deny_ingress,
-    control.network_policy_default_dont_allow_egress,
-    control.network_policy_default_dont_allow_ingress
+    control.cloudeka_guard_default_deny_egress,
+    control.cloudeka_guard_default_deny_ingress,
+    control.cloudeka_guard_default_dont_allow_egress,
+    control.cloudeka_guard_default_dont_allow_ingress
   ]
 
   tags = merge(local.cis_v170_5_3_common_tags, {

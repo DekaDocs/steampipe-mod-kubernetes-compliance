@@ -17,3 +17,5 @@
 # Powerpipe variable files
 *.ppvars
 *.auto.ppvars
+
+deny-all-ingress.yaml

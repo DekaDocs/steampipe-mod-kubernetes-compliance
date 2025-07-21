@@ -10,6 +10,7 @@ benchmark "all_controls" {
   documentation = file("./all_controls/docs/all_controls_overview.md")
   children = [
     benchmark.all_controls_cluster_role_binding,
+    benchmark.all_controls_cloudeka_guard,
     benchmark.all_controls_config_map,
     benchmark.all_controls_cronjob,
     benchmark.all_controls_daemonset,
@@ -18,7 +19,6 @@ benchmark "all_controls" {
     benchmark.all_controls_ingress,
     benchmark.all_controls_job,
     benchmark.all_controls_namespace,
-    benchmark.all_controls_network_policy,
     benchmark.all_controls_pod,
     benchmark.all_controls_pod_security_policy,
     benchmark.all_controls_pod_template,
