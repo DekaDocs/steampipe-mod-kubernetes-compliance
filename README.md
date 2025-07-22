@@ -2,6 +2,23 @@
 
 Multiple checks covering industry defined security best practices for Kubernetes. The mod supports parsing and analyzing Kubernetes manifest files, allowing you to assess compliance directly on your configuration files before deployment. Includes support for CIS, National Security Agency (NSA) and Cybersecurity and Infrastructure Security Agency (CISA) Cybersecurity technical report for Kubernetes hardening.
 
+## 🚀 Enhanced: CloudekaGuard Support
+
+This enhanced version includes **native support for CloudekaGuard CRDs** - perfect for Kubernetes clusters using Cilium and KubeOVN with CloudekaGuard for advanced network policy management.
+
+### 📚 CloudekaGuard Quick Start Guides
+
+- **🏃 [5-Minute Setup](WORKFLOW.md)** - Get CloudekaGuard compliance running quickly
+- **🔍 [Architecture Guide](HOW_IT_WORKS.md)** - Understanding Steampipe + PowerPipe + CloudekaGuard
+- **📖 [Complete Documentation](README_CLOUDEKA_GUARD.md)** - Comprehensive CloudekaGuard guide
+
+### ✨ What's New in This Version
+
+- **🔌 Enhanced Kubernetes Plugin**: Extracts CloudekaGuard CRD specifications (`endpoint_selector`, `ingress`, `egress`)
+- **📊 CloudekaGuard Compliance Queries**: Native SQL queries for CloudekaGuard policy analysis
+- **🛡️ CIS v1.7.0 Network Policy Updates**: Now uses CloudekaGuard instead of standard NetworkPolicy for section 5.3
+- **📈 Multi-format Reports**: CLI, web dashboard, JSON, CSV, and PDF outputs with CloudekaGuard-specific results
+
 Run checks in a dashboard:
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-kubernetes-compliance/main/docs/kubernetes_nsa_csa_v1.png)
 
