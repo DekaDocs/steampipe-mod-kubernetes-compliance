@@ -2737,3 +2737,29 @@ query "pod_container_secrets_defined_as_files" {
       jsonb_array_elements_text(c -> 'envFrom') as env;
   EOQ
 }
+
+query "pod_container_resource_limits_defined" {
+  sql = <<-EOQ
+    select
+      coalesce(uid, concat(path, ':', start_line)) as resource,
+      case
+        when c -> 'resources' -> 'limits' -> 'cpu' is not null 
+          and c -> 'resources' -> 'limits' -> 'memory' is not null then 'ok'
+        else 'alarm'
+      end as status,
+      case
+        when c -> 'resources' -> 'limits' -> 'cpu' is not null 
+          and c -> 'resources' -> 'limits' -> 'memory' is not null then c ->> 'name' || ' has both CPU and memory limits defined.'
+        when c -> 'resources' -> 'limits' -> 'cpu' is null 
+          and c -> 'resources' -> 'limits' -> 'memory' is null then c ->> 'name' || ' has no resource limits defined.'
+        when c -> 'resources' -> 'limits' -> 'cpu' is null then c ->> 'name' || ' has memory limit but no CPU limit defined.'
+        else c ->> 'name' || ' has CPU limit but no memory limit defined.'
+      end as reason,
+      name as pod_name
+      ${local.tag_dimensions_sql}
+      ${local.common_dimensions_sql}
+    from
+      kubernetes_pod,
+      jsonb_array_elements(containers) as c;
+  EOQ
+}
