@@ -23,8 +23,8 @@ locals {
 }
 
 benchmark "cis_v170_5" {
-  title       = "5 Policies"
-  description = "This section contains recommendations for various Kubernetes policies which are important to the security of the environment."
+  title       = "5 Policies (Deka GPU)"
+  description = "This section contains recommendations for various Kubernetes policies which are important to the security of the environment, with enhanced CloudekaGuard support."
   children = [
     benchmark.cis_v170_5_1,
     benchmark.cis_v170_5_2,
@@ -38,7 +38,7 @@ benchmark "cis_v170_5" {
 }
 
 benchmark "cis_v170_5_1" {
-  title         = "5.1 RBAC and Service Accounts"
+  title         = "5.1 RBAC and Service Accounts (Deka GPU)"
   description   = "This section contains recommendations for various Kubernetes RBAC policies which can also govern the behavior of software resources, that Kubernetes identifies as service accounts."
   documentation = file("./cis_v170/docs/cis_v170_5_1.md")
   children = [
@@ -80,7 +80,7 @@ control "cis_v170_5_1_6" {
 }
 
 benchmark "cis_v170_5_2" {
-  title         = "5.2 Pod Security"
+  title         = "5.2 Pod Security (Deka GPU)"
   description   = "This section contains recommendations for pod security policies and container security configurations to ensure proper isolation and security of workloads."
   documentation = file("./cis_v170/docs/cis_v170_5_2.md")
   children = [
@@ -182,8 +182,8 @@ control "cis_v170_5_2_12" {
 }
 
 benchmark "cis_v170_5_3" {
-  title         = "5.3 Network Policies and CNI"
-  description   = "This section contains recommendations for network policies and the Container Network Interface (CNI). It recommends implementing network policies ensuring that only authorized connections are allowed."
+  title         = "5.3 Network Policies and CNI (Deka GPU)"
+  description   = "This section contains recommendations for network policies and the Container Network Interface (CNI). It recommends implementing CloudekaGuard network policies ensuring that only authorized connections are allowed."
   documentation = file("./cis_v170/docs/cis_v170_5_3.md")
   children = [
     benchmark.cis_v170_5_3_2
@@ -195,7 +195,7 @@ benchmark "cis_v170_5_3" {
 }
 
 benchmark "cis_v170_5_3_2" {
-  title         = "5.3.2 Ensure that all Namespaces have Network Policies defined"
+  title         = "5.3.2 Ensure that all Namespaces have CloudekaGuard Network Policies defined (Deka GPU)"
   description   = "Use CloudekaGuard policies to isolate traffic in your cluster network. CloudekaGuard is a custom resource that provides advanced network policy management capabilities using Cilium and KubeOVN."
   documentation = file("./cis_v170/docs/cis_v170_5_3_2.md")
   children = [
@@ -214,7 +214,7 @@ benchmark "cis_v170_5_3_2" {
 }
 
 benchmark "cis_v170_5_7" {
-  title         = "5.7 General Policies"
+  title         = "5.7 General Policies (Deka GPU)"
   description   = "These policies relate to general cluster management topics, like namespace best practices and policies applied to pod objects in the cluster."
   documentation = file("./cis_v170/docs/cis_v170_5_7.md")
   children = [

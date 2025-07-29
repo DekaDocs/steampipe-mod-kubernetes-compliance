@@ -1,6 +1,6 @@
-# Kubernetes Compliance Mod
+# Deka GPU CIS - Kubernetes Compliance Mod
 
-Run individual controls or full compliance benchmarks for `NSA and CISA Kubernetes Hardening Guidance` and `CIS` across all of your Kubernetes clusters.
+Run individual controls or full compliance benchmarks for **CIS v1.7.0** with enhanced **CloudekaGuard** support across all of your Kubernetes clusters using Cilium and KubeOVN.
 
 <img src="https://raw.githubusercontent.com/turbot/steampipe-mod-kubernetes-compliance/main/docs/kubernetes_compliance_dashboard.png" width="50%" type="thumbnail"/>
 <img src="https://raw.githubusercontent.com/turbot/steampipe-mod-kubernetes-compliance/main/docs/kubernetes_nsa_csa_v1.png" width="50%" type="thumbnail"/>
@@ -70,7 +70,7 @@ powerpipe benchmark list
 Run a benchmark:
 
 ```sh
-powerpipe benchmark run kubernetes_compliance.benchmark.cis_v170
+powerpipe benchmark run cis_v170
 ```
 
 Different output formats are also available, for more information please see
@@ -90,7 +90,7 @@ vi powerpipe.ppvars
 Alternatively you can pass variables on the command line:
 
 ```sh
-powerpipe benchmark run kubernetes_compliance.benchmark.cis_v170 --var 'tag_dimensions=["Environment", "Owner"]'
+powerpipe benchmark run cis_v170 --var 'tag_dimensions=["Environment", "Owner"]'
 ```
 
 Or through environment variables:
@@ -98,7 +98,7 @@ Or through environment variables:
 ```sh
 export PP_VAR_common_dimensions='["connection_name", "context_name", "namespace", "path", "source_type"]'
 export PP_VAR_tag_dimensions='["Environment", "Owner"]'
-powerpipe benchmark run kubernetes_compliance.benchmark.cis_v170
+powerpipe benchmark run cis_v170
 ```
 
 ## Open Source & Contributing

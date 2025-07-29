@@ -2,6 +2,18 @@
 
 This document explains the architecture and workflow of using Steampipe and PowerPipe for CloudekaGuard compliance monitoring.
 
+## 📋 Prerequisites
+
+Before diving into the architecture, ensure you have:
+
+- **Kubernetes Cluster**: Running with CloudekaGuard CRDs installed
+- **kubectl**: Configured and working with your cluster
+- **Go 1.23+**: Required for building the Steampipe plugin
+- **Steampipe**: Data engine for Kubernetes API access
+- **PowerPipe**: Compliance engine for running benchmarks
+- **Git**: For cloning repositories
+- **Linux/macOS/WSL**: Development environment
+
 ## 🏗️ Architecture Overview
 
 ### The Three-Layer Stack

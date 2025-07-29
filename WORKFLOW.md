@@ -7,6 +7,7 @@ A simple guide to get CloudekaGuard Kubernetes compliance checking up and runnin
 - [ ] Kubernetes cluster running
 - [ ] CloudekaGuard CRDs installed in cluster
 - [ ] `kubectl` configured and working
+- [ ] Go 1.23+ installed and configured
 - [ ] Linux/macOS/WSL environment
 - [ ] Internet connection for downloads
 
@@ -15,6 +16,20 @@ A simple guide to get CloudekaGuard Kubernetes compliance checking up and runnin
 ### Step 1: Install Required Tools
 
 ```bash
+# Install Go 1.23+ (required for building the plugin)
+# Linux/macOS
+wget https://go.dev/dl/go1.23.0.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.0.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+# Or use package manager
+# Ubuntu/Debian: sudo apt install golang-go
+# macOS: brew install go
+
+# Verify Go installation
+go version
+# Should show: go version go1.23.0 linux/amd64
+
 # Install Steampipe (data engine)
 sudo /bin/sh -c "$(curl -fsSL https://steampipe.io/install/steampipe.sh)"
 
@@ -227,6 +242,23 @@ cd ~/cloudeka-compliance/steampipe-plugin-kubernetes
 make clean
 make install-local
 steampipe service restart
+```
+
+### "Go version errors"
+
+```bash
+# Check Go version
+go version
+
+# If Go is not installed or version < 1.23:
+# Linux/macOS
+wget https://go.dev/dl/go1.23.0.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.0.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+# Verify installation
+go version
+# Should show: go version go1.23.0 linux/amd64
 ```
 
 ### "Connection errors"

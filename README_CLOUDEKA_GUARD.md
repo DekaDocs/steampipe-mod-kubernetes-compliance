@@ -56,7 +56,7 @@ graph TB
 
 - Kubernetes cluster with CloudekaGuard CRDs installed
 - `kubectl` configured to access your cluster
-- Go 1.19+ (for building the plugin)
+- Go 1.23+ (for building the plugin)
 - Git access to your repositories
 
 ### Step 1: Install Steampipe
@@ -77,7 +77,30 @@ sudo /bin/sh -c "$(curl -fsSL https://powerpipe.io/install/powerpipe.sh)"
 # Or download from: https://github.com/turbot/powerpipe/releases
 ```
 
-### Step 3: Clone and Build the Enhanced Kubernetes Plugin
+### Step 3: Install Go 1.23+ (Required for Plugin Building)
+
+```bash
+# Linux/macOS - Download and install Go 1.23
+wget https://go.dev/dl/go1.23.0.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.0.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+# Alternative installation methods:
+# Ubuntu/Debian: sudo apt update && sudo apt install golang-go
+# macOS: brew install go
+# Windows: Download from https://go.dev/dl/
+
+# Verify Go installation
+go version
+# Should show: go version go1.23.0 linux/amd64
+
+# Set GOPATH and GOROOT (if needed)
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+```
+
+### Step 4: Clone and Build the Enhanced Kubernetes Plugin
 
 ```bash
 # Clone your enhanced plugin repository
@@ -91,7 +114,7 @@ make install-local
 steampipe plugin list
 ```
 
-### Step 4: Clone the CloudekaGuard Compliance Mod
+### Step 5: Clone the CloudekaGuard Compliance Mod
 
 ```bash
 # Clone your enhanced compliance mod
@@ -102,7 +125,7 @@ cd steampipe-mod-kubernetes-compliance
 powerpipe mod install
 ```
 
-### Step 5: Configure Kubernetes Connection
+### Step 6: Configure Kubernetes Connection
 
 Create or update `~/.steampipe/config/kubernetes.spc`:
 
@@ -121,7 +144,7 @@ connection "kubernetes" {
 }
 ```
 
-### Step 6: Start Steampipe Service
+### Step 7: Start Steampipe Service
 
 ```bash
 steampipe service start

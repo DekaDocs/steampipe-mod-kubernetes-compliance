@@ -6,6 +6,12 @@ Multiple checks covering industry defined security best practices for Kubernetes
 
 This enhanced version includes **native support for CloudekaGuard CRDs** - perfect for Kubernetes clusters using Cilium and KubeOVN with CloudekaGuard for advanced network policy management.
 
+### 📋 Prerequisites for CloudekaGuard Support
+
+- **Go 1.23+**: Required for building the enhanced Steampipe plugin
+- **Kubernetes Cluster**: With CloudekaGuard CRDs installed
+- **kubectl**: Configured and working with your cluster
+
 ### 📚 CloudekaGuard Quick Start Guides
 
 - **🏃 [5-Minute Setup](WORKFLOW.md)** - Get CloudekaGuard compliance running quickly
