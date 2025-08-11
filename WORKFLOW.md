@@ -49,7 +49,7 @@ mkdir ~/cloudeka-compliance
 cd ~/cloudeka-compliance
 
 # Clone enhanced Kubernetes plugin (with CloudekaGuard support)
-git clone https://github.com/YOUR_USERNAME/steampipe-plugin-kubernetes.git
+git clone https://github.com/Azer2401/steampipe-plugin-kubernetes.git
 cd steampipe-plugin-kubernetes
 
 # Build and install plugin locally
@@ -61,7 +61,7 @@ steampipe plugin list
 
 # Go back and clone the compliance mod
 cd ~/cloudeka-compliance
-git clone https://github.com/YOUR_USERNAME/steampipe-mod-kubernetes-compliance.git
+git clone https://github.com/Azer2401/steampipe-mod-kubernetes-compliance.git
 cd steampipe-mod-kubernetes-compliance
 
 # Install mod dependencies
@@ -78,7 +78,6 @@ mkdir -p ~/.steampipe/config
 cat > ~/.steampipe/config/kubernetes.spc << EOF
 connection "kubernetes" {
   plugin = "local/kubernetes"
-  config_path = "~/.kube/config"
 }
 EOF
 ```
@@ -331,5 +330,6 @@ HAVING count(cg.name) = 0
 - Use `powerpipe benchmark run --help` for additional options
 
 ---
+
 
 🎉 **Congratulations!** You now have CloudekaGuard-aware Kubernetes compliance checking running! 
