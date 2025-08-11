@@ -64,8 +64,6 @@ cd ~/cloudeka-compliance
 git clone https://github.com/Azer2401/steampipe-mod-kubernetes-compliance.git
 cd steampipe-mod-kubernetes-compliance
 
-# Install mod dependencies
-powerpipe mod install
 ```
 
 ### Step 3: Configure Connection to Your Cluster
@@ -92,8 +90,6 @@ steampipe service start
 steampipe query "SELECT count(*) FROM kubernetes_cloudeka_guard"
 # Should return a number (0 if no CloudekaGuards exist)
 
-# Test a simple compliance query
-powerpipe query run query.cloudeka_guard_default_deny_ingress
 ```
 
 ### Step 5: Run Compliance Checks
@@ -333,3 +329,4 @@ HAVING count(cg.name) = 0
 
 
 🎉 **Congratulations!** You now have CloudekaGuard-aware Kubernetes compliance checking running! 
+
