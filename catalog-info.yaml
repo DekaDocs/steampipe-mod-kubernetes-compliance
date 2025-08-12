@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: steampipe-mod-kubernetes-compliance
+  annotations:
+    github.com/project-slug: DekaDocs/steampipe-mod-kubernetes-compliance
+spec:
+  type: other
+  lifecycle: unknown
+  owner: SRE
