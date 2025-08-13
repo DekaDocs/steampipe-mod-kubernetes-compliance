@@ -1,0 +1,40 @@
+/* Custom styles for TechDocs */
+
+/* Mermaid diagram styling */
+.mermaid {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Code block styling */
+.highlight {
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+/* Admonition styling */
+.admonition {
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+/* Table styling */
+.md-typeset table {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Navigation styling */
+.md-nav__link {
+    border-radius: 4px;
+}
+
+/* Search styling */
+.md-search__input {
+    border-radius: 20px;
+}
+
+/* Button styling */
+.md-button {
+    border-radius: 4px;
+} 
